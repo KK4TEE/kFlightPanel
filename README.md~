@@ -15,7 +15,7 @@ If the application is unable to connect to Telemachus/KSP, it will enter a demo 
 Requirements:
   * This application requires PyGame libraries, and is only tested on python 2.7.6 on Ubuntu Linux
   * Telemachus mod for Kerbal Space Program
-  * IPv4 Networking (localhost and remote are both supported)
+  * IPv4 Networking
   
 Future Plans:
   * Update to Python 3
