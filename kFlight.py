@@ -22,8 +22,10 @@ import urllib2
 
 import config
 
-if not pygame.font: print 'Warning, fonts disabled'
-if not pygame.mixer: print 'Warning, sound disabled'
+if not pygame.font: 
+    print ('Warning, fonts disabled')
+if not pygame.mixer: 
+    print ('Warning, sound disabled')
 
 
 def telemetry(oldNews):
@@ -67,7 +69,7 @@ def telemetry(oldNews):
             pass
         return tele
     except:
-        print 'Telemachus update failed'
+        print ('Telemachus update failed')
         return oldNews
 
 
@@ -262,11 +264,11 @@ class PyManMain:
         if config.GoFullscreen is True:
             self.screen = pygame.display.set_mode((0,0), FULLSCREEN | DOUBLEBUF, 0)
             self.background = pygame.Surface(pygame.display.list_modes()[0])
-            print "Going fullscreen"
+            print ("Going fullscreen")
         else:
             self.screen = pygame.display.set_mode((self.width, self.height), 0, 0)
               #Note: RESIZEABLE can go as the 2nd to last option, but things get messy
-            print "Resolution set to " + str(config.ScreenDimensions)
+            print ("Resolution set to " + str(config.ScreenDimensions))
             self.background = pygame.Surface(self.screen.get_size())
         pygame.display.set_caption('kFlight by KK4TEE')
 
@@ -423,10 +425,10 @@ class PyManMain:
         for event in pygameEvents:
             if event.type == pygame.KEYDOWN:
                 if event.key == K_ESCAPE:
-                    print "Exiting by ESC"
+                    print ("Exiting by ESC")
                     sys.exit()
                 if event.key == K_q:
-                    print "q"
+                    print ("q")
 
 
         ''' #Instead of using a qeue, see what is being pressed RIGHT NOW
@@ -441,7 +443,7 @@ class PyManMain:
         '''
 
     def MainLoop(self):
-        print "Resolutions detected: "+str(pygame.display.list_modes())
+        print ("Resolutions detected: "+str(pygame.display.list_modes()))
         frameCount = 0
         xM, yM = self.screen.get_size()
         self.tele = {}
@@ -483,12 +485,12 @@ class PyManMain:
             currentTime = time.time()
             looptime = currentTime - lasttime
             lasttime = currentTime
-            print ""
-            print "Frame Count: " + str(frameCount)
-            print "Loop time:   " + str(looptime) + "s"
-            print "FramesPerSec:" + str(1.0/looptime)
-            print "Avg FPS:     " + str(frameCount/(currentTime - programStartTime)) + "FPS"
-            print "Program Run:       " + str(currentTime - programStartTime)
+            print ("")
+            print ("Frame Count: " + str(frameCount))
+            print ("Loop time:   " + str(looptime) + "s")
+            print ("FramesPerSec:" + str(1.0/looptime))
+            print ("Avg FPS:     " + str(frameCount/(currentTime - programStartTime)) + "FPS")
+            print ("Program Run:       " + str(currentTime - programStartTime))
             #print self.tele
             self.tele['Roll'] +=50*looptime
 
